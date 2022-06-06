@@ -360,13 +360,6 @@ All take a data frame as input, and return a data frame as output.
 
 **We will briefly review   during case study**
 
-
----
-class: inverse, center, title-slide, middle
-
-# Project Setup
-### How to organize your project to maximize reproducibility
-
 ---
 # The R Analysis Workflow
 
@@ -386,6 +379,14 @@ class: inverse, center, title-slide, middle
 - Iterate, Share, and Collaborate!
     - `git`/ `github`
     - `devtools` & `usethis`
+
+
+---
+class: inverse, center, title-slide, middle
+
+# Project Setup
+### How to organize your project to maximize reproducibility
+
 
 ---
 # Reproducibility 
@@ -435,11 +436,6 @@ class: inverse, center, title-slide, middle
 
 ]
 
-.pull-right[
-
-<p align="center"><img src="images/project-folders.png"width=100%></p>
-
-]
 
 
 ---
