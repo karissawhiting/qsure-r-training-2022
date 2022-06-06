@@ -131,9 +131,22 @@ v1 <- c(1, 2, 3)
 v1
 ```
 
+- The `%>%` (pipe) from the magrittr package is a useful way to link functions together to make your code more succinct and easier to read
+
+```{r, eval= FALSE}
+library(dplyr)
+
+mtcars %>% 
+    select(mpg) %>% 
+    filter(mpg == max(mpg))
+
+```
+
 - `?` is your friend if you want to look at documentation! (e.g. type `?mean()` in the console)
 
 - R is case sensitive, bE cArEfUl!
+
+
 
 ---
 
@@ -150,6 +163,31 @@ R basic data types:
 
 ---
 
+# R Basics: Beware Data Type Coercion
+
+- Since columns of a data.frame must be of the same type, some data may be coerced in unexpected ways when reading in a csv or excel file. 
+
+- character is often the default for mixed data types
+
+```{r, echo  = TRUE}
+
+x <- c("apple", 3)
+str(x)
+
+```
+
+```{r, echo  = TRUE}
+y <- c(3, 2, "twenty") 
+y
+```
+
+```{r, echo  = TRUE}
+#sum(y)
+
+```
+
+---
+
 # R Basics: Data Structures and Basic Syntax
 
 R has 5 basic data structures: 
@@ -160,6 +198,7 @@ R has 5 basic data structures:
 3. list
 4. array
 5. data.frame
+6. tibble
 ]
 
 ---
@@ -179,7 +218,7 @@ R has 5 basic data structures:
 c("apple", "orange")
 
 # numeric
-c(1:20)
+c(1:15)
 ```
 ]
 
@@ -262,30 +301,7 @@ head(iris, 4)
 ]
 
 ---
-# R Basics: Beware Data Type Coercion
 
-- Since columns of a data.frame must be of the same type, some data may be coerced in unexpected ways when reading in a csv or excel file. 
-
-- character is often the default for mixed data types
-
-```{r, echo  = TRUE}
-
-x <- c("apple", 3)
-str(x)
-
-```
-
-```{r, echo  = TRUE}
-y <- c(3, 2, "twenty") 
-y
-```
-
-```{r, echo  = TRUE}
-#sum(y)
-
-```
-
----
 # Exploring Your Data: Identify Data Types
 
 
@@ -299,14 +315,24 @@ y
 ```{r}
 str(iris)
 nrow(iris)
-colnames(iris)
-
-class(iris)
-head(iris, 4)
-table(iris$Species)
 ```
 
 ---
+
+# Exploring Your Data: Identify Data Types cont.
+
+```{r}
+
+colnames(iris)
+
+class(iris)
+head(iris[,1:3], 3)
+table(iris$Species)
+
+```
+
+---
+
 # Intro to tidyverse
 
 The tidyverse package is a collection of R packages designed for data analysis, all of which share a similar design, grammar, and structure.
@@ -365,13 +391,13 @@ All take a data frame as input, and return a data frame as output.
 
 - Setup Your Project
 - Clean and Explore Data
-    - `dplyr`
+    - `tidyverse`
     - `lubridate` 
 - Analyze it
     - `stats`
     - `survival`
-    - `lme4`/ `lmer`
-    - `ggplot` 
+    - `lme4`/ `nlme`
+    - `ggplot2` 
 - Report Your Findings
     - R Markdown / `knitr`
     - `gt` / `gtsummary`
