@@ -1,7 +1,7 @@
 ---
 title: "QSURE R Training 2022: Lesson 1"
 author: "Karissa Whiting & Mike Curry"
-date: "June 5th, 2022"
+date: "June 7th, 2022"
 output:
   xaringan::moon_reader:
     css: [xaringan-themer.css, custom.css]
@@ -25,7 +25,7 @@ style_mono_accent(
   base_color = "#007CBA"
 )
 
-# xaringan::inf_mr() 
+#xaringan::inf_mr() 
 options(htmltools.dir.version = FALSE) 
 
 ```
@@ -47,8 +47,8 @@ class: inverse, center, title-slide, middle
 ---
 # Workshop Goal
 
-.extra-large[
-Fill in the gaps in your R knowledge and help you get properly set up to conduct impactful and reproducible research.
+.xxlarge[
+Fill potential gaps in your R knowledge and help you get properly set up to conduct impactful and reproducible research during your time at MSK (and after!)
 ]
 
 
@@ -58,14 +58,27 @@ Fill in the gaps in your R knowledge and help you get properly set up to conduct
 # Survey Results
 
 
-<img src="images/what-to-learn.png" width="600"/>
+.pull-left[
+
+
+
+<p align="center"><img src="images/r-skill-level.png"width=100%></p>
+<p align="center"><img src="images/what-to-learn.png" width=100%></p>
+]
 
 .pull-right[
-<img src="images/r-skill-level.png" width="300"/> 
+
+
+<p align="center"><img src="images/r-basics.png" width=90%></p>
+
+**Based on your feedback we will:**
+- Review some basic R vocab (today)
+- Skip dplyr basics but include some advanced dplyr/data cleaning (today)
+- Focus on project setup (today) 
+- Focus on coding statistical analyses (next session)
+- Optional 3rd session on R package making/Github
 ]
-.pull-left[
-<img src="images/r-basics.png" width="300"/> 
-]
+
 
 ---
 
@@ -175,7 +188,7 @@ c(1:20)
 
 .pull-left[
 1. vector
-.bold[2. matrix]
+2. **matrix**
 ]
 
 .pull-right[
@@ -193,7 +206,7 @@ matrix(letters, nrow=2, ncol=3)
 .pull-left[
 1. vector
 2. matrix
-.bold[3. list]
+3. **list**
 ]
 
 .pull-right[
@@ -206,13 +219,12 @@ str(my_list)
 ]
 
 ---
-
 # R Basics: Data Structures and Basic Syntax
 .pull-left[
 1. vector
 2. matrix
 3. list
-.bold[4. array]
+4. **array**
 ]
 
 
@@ -228,6 +240,7 @@ array(c(vector1,vector2),dim = c(3,3,2))
 ```
 ]
 
+
 ---
 # R Basics: Data Structures and Basic Syntax
 
@@ -236,7 +249,7 @@ array(c(vector1,vector2),dim = c(3,3,2))
 2. matrix
 3. list
 4. array
-.bold[5. data.frame]
+5. **data.frame**
 ]
 
 .pull-right[
@@ -308,7 +321,7 @@ tidyverse_logo()
 ```
 
 ---
-Intro to tidyverse
+# Intro to tidyverse
 
 - readr: data import/export
 - tibble: re-imagined data frames
@@ -352,11 +365,12 @@ All take a data frame as input, and return a data frame as output.
 class: inverse, center, title-slide, middle
 
 # Project Setup
-## How to organize your project to maximize reproducibility
+### How to organize your project to maximize reproducibility
 
 ---
 # The R Analysis Workflow
 
+- Setup Your Project
 - Clean and Explore Data
     - `dplyr`
     - `lubridate` 
@@ -376,12 +390,17 @@ class: inverse, center, title-slide, middle
 ---
 # Reproducibility 
 
+.xlarge[
 *Why is a Reproducible R Workflow Important?*
+]
 
 ---
 # Reproducibility 
 
+.xlarge[
 *Why is a Reproducible R Workflow Important?*
+]
+
 - Allows you to show evidence of your results
 
 - Encourages transparency about decisions made during analysis
@@ -393,7 +412,8 @@ class: inverse, center, title-slide, middle
 ---
 # Reproducibility 
 
-*How do we ensure our R code is reproducible?*
+.xlarge[*How do we ensure our R code is reproducible?*]
+
 - Have a clear project workflow structure
 
 - Comment and document your code
@@ -405,6 +425,22 @@ class: inverse, center, title-slide, middle
 - Version control (document changes you make, or use git!)
 
 - Read More: https://ropensci.github.io/reproducibility-guide/
+
+---
+# Anatomy of a Project
+
+.pull-left[
+
+<p align="center"><img src="images/project-folders.png"width=100%></p>
+
+]
+
+.pull-right[
+
+<p align="center"><img src="images/project-folders.png"width=100%></p>
+
+]
+
 
 ---
 # Why Write a Function? 

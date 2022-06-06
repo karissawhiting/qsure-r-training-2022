@@ -32,8 +32,8 @@ class: inverse, center, title-slide, middle
 ---
 # Workshop Goal
 
-.extra-large[
-Fill in the gaps in your R knowledge and help you get properly set up to conduct impactful and reproducible research.
+.xxlarge[
+Fill potential gaps in your R knowledge and help you get properly set up to conduct impactful and reproducible research during your time at MSK (and after!)
 ]
 
 
@@ -43,14 +43,27 @@ Fill in the gaps in your R knowledge and help you get properly set up to conduct
 # Survey Results
 
 
-&lt;img src="images/what-to-learn.png" width="600"/&gt;
+.pull-left[
+
+
+
+&lt;p align="center"&gt;&lt;img src="images/r-skill-level.png"width=100%&gt;&lt;/p&gt;
+&lt;p align="center"&gt;&lt;img src="images/what-to-learn.png" width=100%&gt;&lt;/p&gt;
+]
 
 .pull-right[
-&lt;img src="images/r-skill-level.png" width="300"/&gt; 
+
+
+&lt;p align="center"&gt;&lt;img src="images/r-basics.png" width=90%&gt;&lt;/p&gt;
+
+**Based on your feedback we will:**
+- Review some basic R vocab (today)
+- Skip dplyr basics but include some advanced dplyr/data cleaning (today)
+- Focus on project setup (today) 
+- Focus on coding statistical analyses (next session)
+- Optional 3rd session on R package making/Github
 ]
-.pull-left[
-&lt;img src="images/r-basics.png" width="300"/&gt; 
-]
+
 
 ---
 
@@ -175,7 +188,7 @@ c(1:20)
 
 .pull-left[
 1. vector
-.bold[2. matrix]
+2. **matrix**
 ]
 
 .pull-right[
@@ -200,7 +213,7 @@ matrix(letters, nrow=2, ncol=3)
 .pull-left[
 1. vector
 2. matrix
-.bold[3. list]
+3. **list**
 ]
 
 .pull-right[
@@ -221,13 +234,12 @@ str(my_list)
 ]
 
 ---
-
 # R Basics: Data Structures and Basic Syntax
 .pull-left[
 1. vector
 2. matrix
 3. list
-.bold[4. array]
+4. **array**
 ]
 
 
@@ -260,6 +272,7 @@ array(c(vector1,vector2),dim = c(3,3,2))
 ```
 ]
 
+
 ---
 # R Basics: Data Structures and Basic Syntax
 
@@ -268,7 +281,7 @@ array(c(vector1,vector2),dim = c(3,3,2))
 2. matrix
 3. list
 4. array
-.bold[5. data.frame]
+5. **data.frame**
 ]
 
 .pull-right[
@@ -401,26 +414,7 @@ The tidyverse package is a collection of R packages designed for data analysis, 
 ```r
 # load it
 library(tidyverse)
-```
 
-```
-## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
-```
-
-```
-## ✔ ggplot2 3.3.5     ✔ purrr   0.3.4
-## ✔ tibble  3.1.6     ✔ dplyr   1.0.8
-## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
-## ✔ readr   2.1.2     ✔ forcats 0.5.1
-```
-
-```
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter() masks stats::filter()
-## ✖ dplyr::lag()    masks stats::lag()
-```
-
-```r
 # check out the cute logo
 tidyverse_logo()
 ```
@@ -434,7 +428,7 @@ tidyverse_logo()
 ```
 
 ---
-Intro to tidyverse
+# Intro to tidyverse
 
 - readr: data import/export
 - tibble: re-imagined data frames
@@ -478,11 +472,12 @@ All take a data frame as input, and return a data frame as output.
 class: inverse, center, title-slide, middle
 
 # Project Setup
-## How to organize your project to maximize reproducibility
+### How to organize your project to maximize reproducibility
 
 ---
 # The R Analysis Workflow
 
+- Setup Your Project
 - Clean and Explore Data
     - `dplyr`
     - `lubridate` 
@@ -502,12 +497,17 @@ class: inverse, center, title-slide, middle
 ---
 # Reproducibility 
 
+.xlarge[
 *Why is a Reproducible R Workflow Important?*
+]
 
 ---
 # Reproducibility 
 
+.xlarge[
 *Why is a Reproducible R Workflow Important?*
+]
+
 - Allows you to show evidence of your results
 
 - Encourages transparency about decisions made during analysis
@@ -519,7 +519,8 @@ class: inverse, center, title-slide, middle
 ---
 # Reproducibility 
 
-*How do we ensure our R code is reproducible?*
+.xlarge[*How do we ensure our R code is reproducible?*]
+
 - Have a clear project workflow structure
 
 - Comment and document your code
@@ -531,6 +532,22 @@ class: inverse, center, title-slide, middle
 - Version control (document changes you make, or use git!)
 
 - Read More: https://ropensci.github.io/reproducibility-guide/
+
+---
+# Anatomy of a Project
+
+.pull-left[
+
+&lt;p align="center"&gt;&lt;img src="images/project-folders.png"width=100%&gt;&lt;/p&gt;
+
+]
+
+.pull-right[
+
+&lt;p align="center"&gt;&lt;img src="images/project-folders.png"width=100%&gt;&lt;/p&gt;
+
+]
+
 
 ---
 # Why Write a Function? 
