@@ -197,8 +197,7 @@ R has 5 basic data structures:
 2. matrix
 3. list
 4. array
-5. data.frame
-6. tibble
+5. data.frame/tibble
 ]
 
 ---
@@ -251,7 +250,7 @@ matrix(letters, nrow=2, ncol=3)
 .pull-right[
 - any data type allowed
 
-```{r}
+```{r, eval = FALSE}
 my_list <- list("a", 2, TRUE) 
 str(my_list)
 ```
@@ -288,7 +287,7 @@ array(c(vector1,vector2),dim = c(3,3,2))
 2. matrix
 3. list
 4. array
-5. **data.frame**
+5. **data.frame/tibble**
 ]
 
 .pull-right[
