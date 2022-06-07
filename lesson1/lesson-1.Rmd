@@ -406,15 +406,15 @@ class: inverse, center, title-slide, middle
 - Enables FUTURE YOU to check and use/extend your methods and results
 
 --
-.center[
-.xlarge[
-***"You mostly collaborate with yourself, and me-from-two-months-ago never responds to email"***
-]
-]
 
 .center[
 .large[
-~ Dr. Mark Holder, Computational Biologist
+***"You mostly collaborate with yourself, and me-from-two-months-ago never responds to email"***
+]
+]
+.pull-right[
+.medium[
+~ *Dr. Mark Holder, Computational Biologist*
 ]
 ]
 
@@ -431,25 +431,11 @@ class: inverse, center, title-slide, middle
 
 - Version control (document changes you make, or use git!)
 
-
 ---
-# Anatomy of a Project
+class: inverse, center, title-slide, middle
 
-.pull-left[
-
-<p align="center"><img src="images/project-folders.png"width=100%></p>
-
-]
-.pull-right[
-
-- keep raw and processed data separate (`raw-data`, vs. `data`)
-- folder for `scripts` ordered or labelled descriptively
-- optionally can have `admin` for project notes, etc  and `outputs` for final reports and figures 
-
-- **README** - text file that introduces and explains a project (`usethis::use_readme_md()`)
-
-]
-
+# Coding Exercise 
+## Case Study: Diabetes Risk Factors
 
 ---
 # Case Study - Modeling Diabetes Risk Factors
@@ -474,6 +460,41 @@ class: inverse, center, title-slide, middle
 library(faraway)
 ?diabetes
 ```
+
+
+---
+# Project Setup: Anatomy of a Project
+
+.pull-left[
+
+<p align="center"><img src="images/project-folders.png"width=100%></p>
+
+]
+.pull-right[
+
+- keep raw and processed data separate (`raw-data`, vs. `data`)
+- folder for `scripts` ordered or labelled descriptively
+- optionally can have `admin` for project notes, etc  and `outputs` for final reports and figures 
+
+- **README** - text file that introduces and explains a project (`usethis::use_readme_md()`)
+- **R Project (.Rproj file) ** - tells RStudio all your files belong to one project and sets working directory for entire project. 
+]
+
+---
+# Project Setup
+
+1. Go to https://github.com/karissawhiting/qsure-case-study-2022 and click **Code > Download ZIP**
+
+2. Create a new folder on your computer and name it "your-initials-case-study-2022"
+
+3. Create subfolders within your project folder called: `admin`, `raw-data`, `scripts`, `data`, `outputs`
+
+4. Create a new R Project in Rstudio from this folder (**File > New Project > Existing Directory**)
+
+5. Create a `README.md` using `usethis::use_readme_md()`
+
+6. Drag contents of `raw-data` and `scripts` from  qsure-case-study-2022 to your new Project. 
+
 
 ---
 class: inverse, center, title-slide, middle
