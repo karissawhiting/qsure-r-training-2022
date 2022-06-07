@@ -198,7 +198,6 @@ R has 5 basic data structures:
 ]
 
 ---
-
 # R Basics: Data Structures and Basic Syntax
 
 .pull-left[
@@ -252,7 +251,9 @@ matrix(letters, nrow=2, ncol=3)
 ```
 ]
 
---- 
+
+
+---
 # R Basics: Data Structures and Basic Syntax
 
 .pull-left[
@@ -270,6 +271,8 @@ my_list &lt;- list("a", 2, TRUE)
 str(my_list)
 ```
 ]
+
+
 
 ---
 # R Basics: Data Structures and Basic Syntax
@@ -332,16 +335,11 @@ head(iris, 4)
 ```
 
 ```
-##   Sepal.Length Sepal.Width Petal.Length
-## 1          5.1         3.5          1.4
-## 2          4.9         3.0          1.4
-## 3          4.7         3.2          1.3
-## 4          4.6         3.1          1.5
-##   Petal.Width Species
-## 1         0.2  setosa
-## 2         0.2  setosa
-## 3         0.2  setosa
-## 4         0.2  setosa
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
 ```
 ]
 
@@ -389,8 +387,7 @@ colnames(iris)
 ```
 
 ```
-## [1] "Sepal.Length" "Sepal.Width"  "Petal.Length"
-## [4] "Petal.Width"  "Species"
+## [1] "Sepal.Length" "Sepal.Width"  "Petal.Length" "Petal.Width"  "Species"
 ```
 
 ```r
@@ -432,17 +429,36 @@ The tidyverse package is a collection of R packages designed for data analysis, 
 ```r
 # load it
 library(tidyverse)
+```
 
+```
+## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
+```
+
+```
+## ✔ ggplot2 3.3.5     ✔ purrr   0.3.4
+## ✔ tibble  3.1.6     ✔ dplyr   1.0.8
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1
+```
+
+```
+## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()
+```
+
+```r
 # check out the cute logo
 tidyverse_logo()
 ```
 
 ```
-## * __  _    __   .    o           *  . 
+## ⬢ __  _    __   .    ⬡           ⬢  . 
 ##  / /_(_)__/ /_ ___  _____ _______ ___ 
 ## / __/ / _  / // / |/ / -_) __(_-&lt;/ -_)
 ## \__/_/\_,_/\_, /|___/\__/_/ /___/\__/ 
-##      *  . /___/      o      .       *
+##      ⬢  . /___/      ⬡      .       ⬢
 ```
 
 ---
@@ -530,8 +546,21 @@ class: inverse, center, title-slide, middle
 
 - Enables FUTURE YOU to check and use/extend your methods and results
 
---
-&lt;br&gt;
+
+---
+# Reproducibility 
+
+.xlarge[
+*Why is a Reproducible R Workflow Important?*
+]
+
+- Allows you to show evidence of your results
+
+- Encourages transparency about decisions made during analysis
+
+- Enables others to check and use/extend your methods and results
+
+- Enables FUTURE YOU to check and use/extend your methods and results
 
 .center[
 .medium[
@@ -633,12 +662,11 @@ class: inverse, center, title-slide, middle
 
 ---
 # Resources
-ADD MORE 
 
-- These materials will be posted to teams
+- These materials will available on Github
 - Data wrangling cheat sheet: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
-- Questions? Reach out to myself or Mike on teams
-- Create an R help channel on teams
+- Questions? Reach out to myself or Mike on teams or via email
+- Create an R help channel on teams- help each other!
 ---
 
 

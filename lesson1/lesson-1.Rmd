@@ -202,7 +202,6 @@ R has 5 basic data structures:
 ]
 
 ---
-
 # R Basics: Data Structures and Basic Syntax
 
 .pull-left[
@@ -239,7 +238,9 @@ matrix(letters, nrow=2, ncol=3)
 ```
 ]
 
---- 
+
+
+---
 # R Basics: Data Structures and Basic Syntax
 
 .pull-left[
@@ -256,6 +257,8 @@ my_list <- list("a", 2, TRUE)
 str(my_list)
 ```
 ]
+
+
 
 ---
 # R Basics: Data Structures and Basic Syntax
@@ -431,8 +434,21 @@ class: inverse, center, title-slide, middle
 
 - Enables FUTURE YOU to check and use/extend your methods and results
 
---
-<br>
+
+---
+# Reproducibility 
+
+.xlarge[
+*Why is a Reproducible R Workflow Important?*
+]
+
+- Allows you to show evidence of your results
+
+- Encourages transparency about decisions made during analysis
+
+- Enables others to check and use/extend your methods and results
+
+- Enables FUTURE YOU to check and use/extend your methods and results
 
 .center[
 .medium[
@@ -533,12 +549,11 @@ class: inverse, center, title-slide, middle
 
 ---
 # Resources
-ADD MORE 
 
-- These materials will be posted to teams
+- These materials will available on Github
 - Data wrangling cheat sheet: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
-- Questions? Reach out to myself or Mike on teams
-- Create an R help channel on teams
+- Questions? Reach out to myself or Mike on teams or via email
+- Create an R help channel on teams- help each other!
 ---
 
 
