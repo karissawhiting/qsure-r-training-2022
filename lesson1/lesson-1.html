@@ -40,24 +40,22 @@ Fill potential gaps in your R knowledge and help you get properly set up to cond
 ???
 
 ---
-# Survey Results
-
+# Survey Results (&gt; 75% Proficient in R! )
 
 .pull-left[
-
-
-
-&lt;p align="center"&gt;&lt;img src="images/r-skill-level.png"width=100%&gt;&lt;/p&gt;
+&lt;p align="center"&gt;&lt;img src="images/r-basics.png" width=90%&gt;&lt;/p&gt;
 &lt;p align="center"&gt;&lt;img src="images/what-to-learn.png" width=100%&gt;&lt;/p&gt;
+
+
 ]
 
 .pull-right[
 
+&lt;p align="center"&gt;&lt;img src="images/prefer-to-learn.png"width=100%&gt;&lt;/p&gt;
 
-&lt;p align="center"&gt;&lt;img src="images/r-basics.png" width=90%&gt;&lt;/p&gt;
 
 **Based on your feedback we will:**
-- Review some basic R vocab (today)
+- Short review on basic R vocab (today)
 - Skip dplyr basics but include some advanced dplyr/data cleaning (today)
 - Focus on project setup (today) 
 - Focus on coding statistical analyses (next session)
@@ -525,17 +523,12 @@ class: inverse, center, title-slide, middle
 ---
 # Reproducibility 
 
+--
 .xlarge[
 *Why is a Reproducible R Workflow Important?*
 ]
 
----
-# Reproducibility 
-
-.xlarge[
-*Why is a Reproducible R Workflow Important?*
-]
-
+--
 - Allows you to show evidence of your results
 
 - Encourages transparency about decisions made during analysis
@@ -544,14 +537,25 @@ class: inverse, center, title-slide, middle
 
 - Enables FUTURE YOU to check and use/extend your methods and results
 
+--
+
+.center[
+.large[
+***"You mostly collaborate with yourself, and me-from-two-months-ago never responds to email"***
+]
+]
+.pull-right[
+.medium[
+~ *Dr. Mark Holder, Computational Biologist*
+]
+]
+
 ---
-# Reproducibility 
+# How do we ensure our R code is reproducible?
 
-.xlarge[*How do we ensure our R code is reproducible?*]
+- Have a clear project structure and defined workflow
 
-- Have a clear project workflow structure
-
-- Comment and document your code
+- **Comment and document your code**
 
 - Use reproducible reporting practice (e.g. Rmd inline text)
 
@@ -559,17 +563,87 @@ class: inverse, center, title-slide, middle
 
 - Version control (document changes you make, or use git!)
 
-- Read More: https://ropensci.github.io/reproducibility-guide/
+---
+class: inverse, center, title-slide, middle
+
+# Coding Exercise 
+## Case Study: Diabetes Risk Factors
 
 ---
-# Anatomy of a Project
+# Case Study - Modeling Diabetes Risk Factors
+
+- Analyze risk factors for diabetes
+- Is waist to hip ratio a risk factor for diabetes?
+
+- Outcome: glycosolated hemoglobin level (&gt; 7 is considered diabetic)
+
+- Available Variables of interest: 
+    - cholesterol level 
+    - stabilized glucose
+    - location of individual
+    - age
+    - gender
+    - height/weight
+    - body frame
+    - waist in inches
+    - hip in inches
+    
+
+```r
+library(faraway)
+?diabetes
+```
+
+
+---
+# Project Setup: Anatomy of a Project
 
 .pull-left[
 
 &lt;p align="center"&gt;&lt;img src="images/project-folders.png"width=100%&gt;&lt;/p&gt;
 
 ]
+.pull-right[
 
+- keep raw and processed data separate (`raw-data`, vs. `data`)
+- folder for `scripts` ordered or labelled descriptively
+- optionally can have `admin` for project notes, etc  and `outputs` for final reports and figures 
+
+- **README** - text file that introduces and explains a project (`usethis::use_readme_md()`)
+- **R Project (.Rproj file) ** - tells RStudio all your files belong to one project and sets working directory for entire project. 
+]
+
+---
+# Project Setup
+
+1. Go to https://github.com/karissawhiting/qsure-case-study-2022 and click **Code &gt; Download ZIP**
+
+2. Create a new folder on your computer and name it "your-initials-case-study-2022"
+
+3. Create subfolders within your project folder called: `admin`, `raw-data`, `scripts`, `data`, `outputs`
+
+4. Create a new R Project in Rstudio from this folder (**File &gt; New Project &gt; Existing Directory**)
+
+5. Create a `README.md` using `usethis::use_readme_md()`
+
+6. Drag contents of `raw-data` and `scripts` from  qsure-case-study-2022 to your new Project. 
+
+
+---
+class: inverse, center, title-slide, middle
+
+# Thank You!
+
+
+---
+# Resources
+ADD MORE 
+
+- These materials will be posted to teams
+- Data wrangling cheat sheet: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
+- Questions? Reach out to myself or Mike on teams
+- Create an R help channel on teams
+---
 
 
 ---
@@ -622,43 +696,6 @@ calc_bmi &lt;- function() {
 }
 ```
 
-
-
----
-# Case Study - Modeling Diabetes Risk Factors
-
-- Analyze risk factors for diabetes
-- Is waist to hip ratio a risk factor for diabetes?
-
-- Outcome: glycosolated hemoglobin level (&gt; 7 is considered diabetic)
-
-- Available Variables of interest: 
-    - cholesterol level 
-    - stabilized glucose
-    - location of individual
-    - age
-    - gender
-    - height/weight
-    - body frame
-    - waist in inches
-    - hip in inches
-    
-
-```r
-library(faraway)
-?diabetes
-```
-
----
-
-# Resources
-
-
-- These materials will be posted to teams
-- Data wrangling cheat sheet: https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
-- Questions? Reach out to myself or Mike on teams
-- Create an R help channel on teams
----
 
 
 
