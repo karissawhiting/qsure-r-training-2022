@@ -36,15 +36,16 @@ options(htmltools.dir.version = FALSE)
 xaringanExtra::use_freezeframe()
 ```
 
-class: inverse, center, title-slide, middle
 
+class: inverse, center, title-slide, middle
 # QSURE R Training 2022
-## Lesson 1
+## `Lesson 1`
 
 ### Karissa Whiting & Mike Curry
 
-#### June 5th, 2021
+#### June 7th, 2022
 
+<p align="center"><img src="images/core_hex_stickers.png"width=20%></p>
 
 ---
 # Workshop Goal
@@ -406,9 +407,10 @@ class: inverse, center, title-slide, middle
 - Enables FUTURE YOU to check and use/extend your methods and results
 
 --
+<br>
 
 .center[
-.large[
+.medium[
 ***"You mostly collaborate with yourself, and me-from-two-months-ago never responds to email"***
 ]
 ]
@@ -441,7 +443,7 @@ class: inverse, center, title-slide, middle
 # Case Study - Modeling Diabetes Risk Factors
 
 - Analyze risk factors for diabetes
-- Is waist to hip ratio a risk factor for diabetes?
+- **Research Question:** Is waist to hip ratio a risk factor for diabetes?
 
 - Outcome: glycosolated hemoglobin level (> 7 is considered diabetic)
 
@@ -473,6 +475,7 @@ library(faraway)
 .pull-right[
 
 - keep raw and processed data separate (`raw-data`, vs. `data`)
+
 - folder for `scripts` ordered or labelled descriptively
 - optionally can have `admin` for project notes, etc  and `outputs` for final reports and figures 
 
@@ -483,13 +486,14 @@ library(faraway)
 ---
 # Project Setup
 
-1. Go to https://github.com/karissawhiting/qsure-case-study-2022 and click **Code > Download ZIP**
 
-2. Create a new folder on your computer and name it "your-initials-case-study-2022"
+1. Create a new folder on your computer and name it "your-initials-case-study-2022"
 
-3. Create subfolders within your project folder called: `admin`, `raw-data`, `scripts`, `data`, `outputs`
+2. Create subfolders within your project folder called: `admin`, `raw-data`, `scripts`, `data`, `outputs`
 
-4. Create a new R Project in Rstudio from this folder (**File > New Project > Existing Directory**)
+3. Create a new R Project in Rstudio from this folder (**File > New Project > Existing Directory**)
+
+4. Go to https://github.com/karissawhiting/qsure-case-study-2022 and click **Code > Download ZIP**
 
 5. Create a `README.md` using `usethis::use_readme_md()`
 
