@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 set.seed(78987)
 library(xaringanthemer)
 library(gtsummary)
-
+library(dplyr)
 style_mono_accent(
   base_color = "#007CBA", 
   code_inline_color = "#FF5733",
@@ -52,8 +52,6 @@ class: inverse, center, title-slide, middle
 
 .xxlarge[
 Will cover:
-- t-tests
-- chi square 
 - linear model
 - logistic model
 - survival analyses 
@@ -64,18 +62,19 @@ Will cover:
 ## General modeling formula 
 
 .xxlarge[
-- in general `~` is used to separate your outcome on the left hand side and your variables on the right hand side
+- in general `~` is used to separate your outcome on the left hand side and your predictors on the right hand side
 - your outcome will always be on the left side of the `~`
 - only some univariate tests like `chisq.test()` do not use the `~` notation 
 - general  notation: model(outcome ~ covariates, data)
 ]
+- the `stats` package is already loaded in R which will make it easier to use common statisitcal tests
 
 ---
 
-## Example of model
+## Example of linear model
 
 .xxlarge[
-- Will go through more examples in the case study
+- Continuous outcome 
 - `mtcars$vs  <- as.character(mtcars$vs)`
 - `mtcars$cyl   <- as.character(mtcars$cyl)`
 - `lm(mpg ~ vs + cyl, data = mtcars)`
@@ -120,9 +119,8 @@ summary(mod1)
 - this helps with reporting and you can further format the data.frame and present with `gt`
 
 ```{r, message=FALSE}
-library(dplyr)
 
-moddf <- broom::tidy(mod1) %>% #didn't load broom just called on function 
+moddf <- broom::tidy(mod1) %>% #didn't load broom just called one function 
           mutate(p.value = round(p.value,3)) %>% 
           select(-std.error)
 
@@ -132,21 +130,133 @@ gt::gt(moddf)
 
 ]
 
---- 
+---
 
-## gtsummary
+### gtsummary
 
 .xxlarge[
 
-- Note Karissa and I are both co-authors on this package
 - `gtsummary` makes it easier to report model and descriptive statistics (more on this in the example)
+- For more helpful examples: https://www.danieldsjoberg.com/gtsummary/index.html 
+]
+
+---
+
+### gtsummary
+
+```{r}
+tbl_regression(mod1)
+```
+
+---
+
+### Customizing gtsummary
+
+```{r}
+
+library(labelled)
+
+var_label(mtcars$cyl) <- "Cylinder"
+newmodsum <- lm(mpg ~ vs * cyl, data = mtcars) %>% 
+tbl_regression() %>% 
+    bold_labels() %>% 
+    modify_caption("New title for model")
+
+
+```
+
+---
+
+### Customizing gtsummary
+
+```{r}
+
+newmodsum
+
+```
+
+
+---
+
+## Logistic models
+
+.xxlarge[
+
+- binary outcome (0/1)
+- R will model the '1' as the event by default make sure your variable is coded correctly
+
+```{r}
+mtcars$vs <- as.numeric(mtcars$vs)
+mtcars$am <- as.character(mtcars$am)
+
+mod2 <- glm(vs ~ am , data = mtcars, family =  "binomial")
+
+
+
+```
+
+]
+
+---
+
+## Summarize logistic model
+
+```{r}
+
+tbl_regression(mod2, exponentiate = TRUE) %>% 
+    bold_labels()
+
+```
+
+
+---
+
+## Survival analysis
+
+.xxlarge[
+- Outcome is both time and an event (e.g death, progression)
+- Have to specify both in model  
+- Former MSK employee Emily Zabor put together great materials for survival analysis here: https://www.emilyzabor.com/tutorials/survival_analysis_in_r_tutorial.html
+
+
+]
+
+
+---
+
+## Survival analysis
+
+```{r}
+library(survival)
+
+lung <- lung %>% 
+        mutate(ph.ecog = as.character(ph.ecog),
+               sex = as.character(sex))
+
+mod3 <- coxph(Surv(time, status)~ph.ecog+sex,data = lung)
+mod4 <- survfit(Surv(time, status) ~ sex,data = lung)
+
+
+
+```
+
+---
+
+## Survival analysis
+
+```{r}
+
+tbl_regression(mod3, exponentiate = TRUE)
+
+```
+
+---
+
+### Survival analysis
 
 
 ```{r}
 
-library(gtsummary)
-tbl_regression(mod1) %>% 
-  bold_labels()
+mod4
 
 ```
-]
