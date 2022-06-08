@@ -93,6 +93,35 @@ names(mod1)
 
 ---
 
+## Check model diagnositcs
+
+
+```r
+library(car)
+#model diagnositics
+
+#multi colinearity
+#vifmod &lt;- car::vif(mod1) #will not work with interaction present
+
+
+#influencers 
+cutoff &lt;- 4/((nrow(mtcars)-length(mod1$coefficients)-2)) 
+```
+
+---
+
+## Check model diagnositcs
+
+
+```r
+#many options for which! 
+plot(mod1, which=1, cook.levels=cutoff)
+```
+
+![](QSURE-R-Training-2022_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+
+---
+
 ## Example cont.
 
 
@@ -2571,7 +2600,6 @@ tbl_regression(mod3, exponentiate = TRUE)
 </div>
 
 ---
-
 ### Survival analysis
 
 
@@ -2586,6 +2614,25 @@ mod4
 ##         n events median 0.95LCL 0.95UCL
 ## sex=1 138    112    270     212     310
 ## sex=2  90     53    426     348     550
+```
+
+
+---
+
+## Survival analysis
+
+- test proportional hazards
+
+
+```r
+cox.zph(mod3)
+```
+
+```
+##         chisq df     p
+## ph.ecog  5.64  3 0.130
+## sex      2.56  1 0.110
+## GLOBAL   7.83  4 0.098
 ```
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>

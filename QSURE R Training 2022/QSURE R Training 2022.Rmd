@@ -98,6 +98,35 @@ names(mod1)
 
 ---
 
+## Check model diagnositcs
+
+```{r, message=FALSE}
+
+library(car)
+#model diagnositics
+
+#multi colinearity
+#vifmod <- car::vif(mod1) #will not work with interaction present
+
+
+#influencers 
+cutoff <- 4/((nrow(mtcars)-length(mod1$coefficients)-2)) 
+
+
+```
+
+---
+
+## Check model diagnositcs
+
+```{r}
+#many options for which! 
+plot(mod1, which=1, cook.levels=cutoff)
+
+```
+
+---
+
 ## Example cont.
 
 ```{r}
@@ -251,12 +280,24 @@ tbl_regression(mod3, exponentiate = TRUE)
 ```
 
 ---
-
 ### Survival analysis
 
 
 ```{r}
 
 mod4
+
+```
+
+
+---
+
+## Survival analysis
+
+- test proportional hazards
+
+```{r}
+
+cox.zph(mod3)
 
 ```
