@@ -1,10 +1,6 @@
 class: inverse, center, title-slide, middle
-# QSURE R Training 2022
-## `Lesson 1`
-
-### Karissa Whiting & Mike Curry
-
-#### June 7th, 2022
+# `Lesson 1`
+## June 7th, 2022
 
 <p align="center"><img src="images/core_hex_stickers.png"width=20%></p>
 
