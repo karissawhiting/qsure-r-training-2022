@@ -1,0 +1,152 @@
+---
+title: "QSURE R Training 2022: Lesson 1"
+author: "Karissa Whiting & Mike Curry"
+date: "June 7th, 2022"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, custom.css]
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: 16:9
+---
+
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+
+set.seed(78987)
+library(xaringanthemer)
+library(gtsummary)
+
+style_mono_accent(
+  base_color = "#007CBA", 
+  code_inline_color = "#FF5733",
+  code_font_size = "0.7em"
+)
+
+#xaringan::inf_mr() 
+options(htmltools.dir.version = FALSE) 
+
+```
+
+```{r xaringanExtra-freezeframe, echo=FALSE}
+xaringanExtra::use_freezeframe()
+```
+
+
+class: inverse, center, title-slide, middle
+# QSURE R Training 2022
+## `Lesson 2`
+
+### Karissa Whiting & Mike Curry
+
+#### June 9th, 2022
+
+---
+
+## Model Statistical analyses 
+
+.xxlarge[
+Will cover:
+- t-tests
+- chi square 
+- linear model
+- logistic model
+- survival analyses 
+]
+
+---
+
+## General modeling formula 
+
+.xxlarge[
+- in general `~` is used to separate your outcome on the left hand side and your variables on the right hand side
+- your outcome will always be on the left side of the `~`
+- only some univariate tests like `chisq.test()` do not use the `~` notation 
+- general  notation: model(outcome ~ covariates, data)
+]
+
+---
+
+## Example of model
+
+.xxlarge[
+- Will go through more examples in the case study
+- `mtcars$vs  <- as.character(mtcars$vs)`
+- `mtcars$cyl   <- as.character(mtcars$cyl)`
+- `lm(mpg ~ vs + cyl, data = mtcars)`
+- Specifying interactions 
+- `lm(mpg ~ vs * cyl, data = mtcars)`
+- `lm(mpg ~ vs + cyl + vs:cyl, data = mtcars)`
+
+
+```{r, eval= TRUE}
+
+mtcars$vs  <- as.character(mtcars$vs)
+mtcars$cyl   <- as.character(mtcars$cyl)
+mod1 <- lm(mpg ~ vs * cyl, data = mtcars)
+class(mod1) # class of lm which is a list
+
+names(mod1)
+
+```
+
+]
+
+---
+
+## Example cont.
+
+```{r}
+
+summary(mod1)
+
+```
+
+- while it is nice to see the summary results, you wouldn't present them in this fashion
+
+---
+
+## Example cont. 
+
+.xxlarge[
+
+- `broom` and `gt`/`gtsummary` will help
+- `broom` is a package that helps tidy model results into data.frames
+- this helps with reporting and you can further format the data.frame and present with `gt`
+
+```{r, message=FALSE}
+library(dplyr)
+
+moddf <- broom::tidy(mod1) %>% #didn't load broom just called on function 
+          mutate(p.value = round(p.value,3)) %>% 
+          select(-std.error)
+
+gt::gt(moddf)
+
+```
+
+]
+
+--- 
+
+## gtsummary
+
+.xxlarge[
+
+- Note Karissa and I are both co-authors on this package
+- `gtsummary` makes it easier to report model and descriptive statistics (more on this in the example)
+
+
+```{r}
+
+library(gtsummary)
+tbl_regression(mod1) %>% 
+  bold_labels()
+
+```
+]
