@@ -58,14 +58,8 @@ Will cover:
 
 .xxlarge[
 - Continuous outcome 
-- `mtcars$vs  &lt;- as.character(mtcars$vs)`
-- `mtcars$cyl   &lt;- as.character(mtcars$cyl)`
-- `lm(mpg ~ vs + cyl, data = mtcars)`
 - Specifying interactions 
-- `lm(mpg ~ vs * cyl, data = mtcars)`
-- `lm(mpg ~ vs + cyl + vs:cyl, data = mtcars)`
-
-
+]
 
 ```r
 mtcars$vs  &lt;- as.character(mtcars$vs)
@@ -89,7 +83,6 @@ names(mod1)
 ## [13] "model"
 ```
 
-]
 
 ---
 
