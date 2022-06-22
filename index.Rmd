@@ -47,3 +47,8 @@ class: inverse, center, title-slide, middle
 ---
 ```{r child='lesson-1.Rmd'}
 ```
+
+---
+
+```{r child='lesson-2.Rmd'}
+```
