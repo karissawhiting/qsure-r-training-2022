@@ -1,6 +1,6 @@
 # QSURE R Training Seminars
 
-**Intructors:** [Karissa Whiting](https://github.com/karissawhiting), [Mike Curry](https://github.com/michaelcurry1123)
+**Instructors:** [Karissa Whiting](https://github.com/karissawhiting), [Mike Curry](https://github.com/michaelcurry1123)
 
 # Training Agenda
 
